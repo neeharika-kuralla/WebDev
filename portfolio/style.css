@@ -1,5 +1,5 @@
 
-#heading{
+.heading{
     color: blue;
     font-weight: bold;
 }
@@ -43,6 +43,5 @@
 .photo{
     width: 300px;
     height: 400px;
-    background-color: bisque;
     border-radius: 10px;
 }
