@@ -1,0 +1,48 @@
+
+#heading{
+    color: blue;
+    font-weight: bold;
+}
+.navbar{
+    display: flex;
+    position: relative;
+}
+.navbar a{
+    text-decoration: none;
+    margin-right: 20px;
+    margin-top: 10px;
+    color: black;
+}
+.navbar .heading{
+    font-size: 22px;
+    color: blue;
+    width: 35%;
+}
+.container{
+    display: flex;
+    margin-left: 50px;
+}
+.content{
+    width: 60%;
+    margin-top:15%;
+    margin-left: 10%;
+}
+.image {
+    width: 40%;
+    margin-top: 150px;
+    margin-left: 100px;
+}
+.content button{
+    background-color: blue;
+    border: none;
+    padding: 7px 15px;
+    border-radius: 3px;
+    color: white;
+}
+
+.photo{
+    width: 300px;
+    height: 400px;
+    background-color: bisque;
+    border-radius: 10px;
+}
