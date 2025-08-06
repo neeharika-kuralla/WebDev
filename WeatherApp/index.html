@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .weather-container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+    }
+
+    input {
+      width: 80%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      background: white;
+      color: #0072ff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .result {
+      margin-top: 1rem;
+    }
+
+    .error {
+      color: yellow;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="weather-container">
+    <h2>Weather App</h2>
+    <input type="text" id="cityInput" placeholder="Enter city name" />
+    <button onclick="getWeather()">Get Weather</button>
+    <div class="result" id="weatherResult"></div>
+  </div>
+
+  <script>
+    const apiKey = "YOUR_API_KEY"; // Replace with your real API key
+
+    async function getWeather() {
+      const city = document.getElementById("cityInput").value;
+      const resultDiv = document.getElementById("weatherResult");
+
+      if (!city) {
+        resultDiv.innerHTML = "<p class='error'>Please enter a city name.</p>";
+        return;
+      }
+
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("City not found");
+
+        const data = await response.json();
+
+        const temp = data.main.temp;
+        const desc = data.weather[0].description;
+        const humidity = data.main.humidity;
+        const wind = data.wind.speed;
+
+        resultDiv.innerHTML = `
+          <h3>${data.name}, ${data.sys.country}</h3>
+          <p>🌡️ Temperature: ${temp}°C</p>
+          <p>🌥️ Condition: ${desc}</p>
+          <p>💧 Humidity: ${humidity}%</p>
+          <p>💨 Wind Speed: ${wind} m/s</p>
+        `;
+      } catch (error) {
+        resultDiv.innerHTML = `<p class='error'>${error.message}</p>`;
+      }
+    }
+  </script>
+
+</body>
+</html>
