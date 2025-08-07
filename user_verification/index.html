@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Community Event Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Community Event Registration</h2>
+    <form id="registrationForm" novalidate>
+      <label>Full Name*</label>
+      <input type="text" id="name" required>
+      <span class="error" id="nameError"></span>
+
+      <label>Email*</label>
+      <input type="email" id="email" required>
+      <span class="error" id="emailError"></span>
+
+      <label>Phone Number*</label>
+      <input type="text" id="phone" required>
+      <span class="error" id="phoneError"></span>
+
+      <label>Age*</label>
+      <input type="number" id="age" required>
+      <span class="error" id="ageError"></span>
+
+      <label>Gender*</label>
+      <div class="gender">
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+      </div>
+      <span class="error" id="genderError"></span>
+
+      <label>City*</label>
+      <select id="city" required>
+        <option value="">--Select City--</option>
+        <option>Hyderabad</option>
+        <option>Bangalore</option>
+        <option>Mumbai</option>
+        <option>Delhi</option>
+        <option>Chennai</option>
+        <option>Jaipur</option>
+        <option>Kashmir</option>
+        <option>Assam</option>
+      </select>
+      <span class="error" id="cityError"></span>
+
+      <label>Interests</label>
+      <div class="interests">
+        <input type="checkbox" value="Music"> Music
+        <input type="checkbox" value="Tech"> Tech
+        <input type="checkbox" value="Sports"> Sports
+      </div>
+
+      <button type="submit">Register</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
